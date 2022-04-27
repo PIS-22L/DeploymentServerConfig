@@ -6,6 +6,8 @@
 
 ## Prerequisites
 
+- clone and enter this repository
+
 - Download backend app (.jar) image from nexus
 
         curl -L <artifact_url> --output backend.jar
