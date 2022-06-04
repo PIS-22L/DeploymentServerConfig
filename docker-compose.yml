@@ -2,11 +2,26 @@ version: "3.9"
 
 services:
   backend:
-    build: ./backend/
+    image: localhost:9000/repository/pis/backend
     ports:
-      - "8082:8080"
+      - "8083:8083"
+    container_name: backendDockerized
 
   frontend:
-    build: ./frontend/
+    image: localhost:9000/repository/pis/frontend
     ports:
-      - "8083:3000"
+            - "8082:3000"
+    container_name: frontendDockerized
+
+  maildev:
+    image: maildev/maildev
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+ 
+  rabbitmq:
+    image: rabbitmq:management
+    ports:
+      - "5672:5672"
+      - "15672:15672"   
+    container_name: rabbitmq
